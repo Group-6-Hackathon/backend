@@ -10,7 +10,7 @@
  - Run the application with `npm start`
 
  ## Project Structure
-
+```
 backend/
 │
 ├── controllers/             # Request handlers for routes
@@ -21,4 +21,5 @@ backend/
 ├── index.js                 # Main application setup & server
 ├── db.js                    # Database configuration  
 ├── package.json             
-└── README.md                
+└── README.md
+```        
