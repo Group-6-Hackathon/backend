@@ -12,7 +12,6 @@
  ## Project Structure
 ```
 backend/
-│
 ├── controllers/             # Request handlers for routes
 ├── models/                  # Models for database
 ├── routes/                  # Express route end points
