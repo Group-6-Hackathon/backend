@@ -8,6 +8,8 @@
  - Clone the github repository
  - Install dependencies using `npm install`
  - Run the application with `npm start`
+ - Create a .env file to store the following private environment variables (not to be pushed to remote repo)
+    -  MONGODB_URI
 
  ## Project Structure
 ```
