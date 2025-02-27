@@ -27,6 +27,15 @@ const getHandoverById = async (req, res) => {
     }
 };
 
+const getHandoversByPatientId = async (req, res) => {
+    try {
+        const handovers = await handoverService.getHandoversByPatientId(req.params.patientId);
+        res.status(200).json(handovers);
+    } catch (error) {
+        res.status(400).json({message: error.message});
+    }
+};
+
 const updateHandoverById = async (req, res) => {
     try {
         const handover = await handoverService.updateHandoverById(req.params.id, req.body);
@@ -55,6 +64,7 @@ module.exports = {
     createHandover,
     getAllHandovers,
     getHandoverById,
+    getHandoversByPatientId,
     updateHandoverById,
     deleteHandoverById
 };

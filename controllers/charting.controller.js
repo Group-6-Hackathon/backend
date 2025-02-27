@@ -27,6 +27,15 @@ const getChartById = async (req, res) => {
     }
 };
 
+const getChartsByPatientId = async (req, res) => {
+    try {
+        const charts = await chartService.getChartsByPatientId(req.params.patientId);
+        res.status(200).json(charts);
+    } catch (error) {
+        res.status(400).json({message: error.message});
+    }
+}
+
 const updateChartById = async (req, res) => {
     try {
         const chart = await chartService.updateChartById(req.params.id, req.body);
@@ -56,5 +65,6 @@ module.exports = {
     getAllCharts,
     getChartById,
     updateChartById,
-    deleteChartById
+    deleteChartById,
+    getChartsByPatientId
 };

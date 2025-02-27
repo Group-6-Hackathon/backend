@@ -45,10 +45,20 @@ const deleteHandoverById = async (id) => {
     }
 };
 
+const getHandoversByPatientId = async (patientId) => {
+    try {
+        const handovers = await Handover.find({patientID: patientId});
+        return handovers;
+    } catch (error) {
+        throw new Error(`Get handovers by patient id error: ${error.message}`);
+    }
+}
+
 module.exports = {
     createHandover,
     getAllHandovers,
     getHandoverById,
     updateHandoverById,
-    deleteHandoverById
+    deleteHandoverById,
+    getHandoversByPatientId
 };
