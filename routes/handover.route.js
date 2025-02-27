@@ -1,10 +1,11 @@
 const express = require('express');
-const handoverController = require('../controllers/handover.controller');
 const router = express.Router();
+const handoverController = require('../controllers/handover.controller');
 
 router.post('/', handoverController.createHandover);
 router.get('/', handoverController.getAllHandovers);
 router.get('/:id', handoverController.getHandoverById);
+router.get('/patient/:patientId', handoverController.getHandoversByPatientId); // New route
 router.put('/:id', handoverController.updateHandoverById);
 router.delete('/:id', handoverController.deleteHandoverById);
 
