@@ -5,7 +5,7 @@ const handoverController = require('../controllers/handover.controller');
 router.post('/', handoverController.createHandover);
 router.get('/', handoverController.getAllHandovers);
 router.get('/:id', handoverController.getHandoverById);
-router.get('/patient/:patientId', handoverController.getHandoversByPatientId); // New route
+router.get('/patient/:patientId', handoverController.getHandoversByPatientId);
 router.put('/:id', handoverController.updateHandoverById);
 router.delete('/:id', handoverController.deleteHandoverById);
 

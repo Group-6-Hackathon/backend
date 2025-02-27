@@ -45,10 +45,20 @@ const deleteChartById = async (id) => {
     }
 };
 
+const getChartsByPatientId = async (patientId) => {
+    try {
+        const chartings = await Chart.find({patientID: patientId});
+        return chartings;
+    } catch (error) {
+        throw new Error(`Get charting by patient id error: ${error.message}`);
+    }
+}
+
 module.exports = {
     createChart,
     getAllCharts,
     getChartById,
     updateChartById,
-    deleteChartById
+    deleteChartById,
+    getChartsByPatientId
 };
