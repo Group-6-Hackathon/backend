@@ -1,9 +1,24 @@
 const Handover = require('../models/handover');
+const { generateHandoverSummary } = require('./llm-service');
 
 const createHandover = async (handoverBody) => {
     try {
-        const handover = await Handover.create(handoverBody);
-        return handover;
+        const patientID = handoverBody.patientID;
+        const generatedSummary = await generateHandoverSummary(handoverBody);
+        const handoverSummary = generatedSummary.handoverSummary;
+        if (!handoverSummary) {
+            throw new Error("Generated handover summary is missing.");
+        }
+
+        // Create and save the new handover document
+        const newHandover = new Handover({
+            patientID,
+            handoverSummary
+        });
+
+        await newHandover.save();
+
+        return newHandover;
     } catch (error) {
         throw new Error(`Handover creation error: ${error.message}`);
     }
