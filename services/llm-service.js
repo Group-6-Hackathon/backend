@@ -59,6 +59,7 @@ ${JSON.stringify(handoverData, null, 2)}
       max_tokens: 500,
 
       // JSON schema enforcement
+      
       response_format: {
         type: "json_schema",
         json_schema: {
@@ -69,15 +70,36 @@ ${JSON.stringify(handoverData, null, 2)}
               handoverSummary: {
                 type: "object",
                 properties: {
-                  currentVisit: { type: "string" },
-                  allergies: { type: "array", items: { type: "string" } },
-                  medicalHistory: { type: "array", items: { type: "string" } },
-                  surgicalHistory: { type: "array", items: { type: "string" } },
-                  outstandingTests: { type: "array", items: { type: "string" } },
-                  criticalResults: { type: "array", items: { type: "string" } },
-                  treatmentPlan: { type: "string" },
+                  medicalHistory: { type: "string" },
+                  medications: { type: "string" },
+                  surgicalHistory: { type: "string" },
+                  allergies: { type: "string" },
+                  presentingHistory: { type: "string" },
+                  gcd: { type: "string" },
+                  workingDiagnosis: { type: "string" },
+                  confirmedDiagnosis: { type: "string" },
+                  pertinentLabResults: { type: "string" },
+                  criticalLabResults: { type: "string" },
+                  pertinentImagingResults: { type: "string" },
+                  abnormalImagingResults: { type: "string" },
+                  vitals: {
+                    type: "object",
+                    properties: {
+                      bloodPressure: { type: "string" },
+                      heartRate: { type: "string" },
+                      respRate: { type: "string" },
+                      oxygenSaturation: { type: "string" },
+                      temperature: { type: "string" },
+
+                    },
+                  },
+                  consults: { type: "string" },
+                  assessmentFindings: { type: "string" },
+                  currentTreatmentPlan: { type: "string" },
+                  outstandingTasks: { type: "string" },
+                  alliedHealthInvolvement: { type: "string" },
                 },
-                required: ["currentVisit", "treatmentPlan"],
+                required: ["currentTreatmentPlan"],
               },
             },
             required: ["handoverSummary"],
