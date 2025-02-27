@@ -23,8 +23,6 @@ const patientSchema = new Schema({
   height: { type: Number, required: true },
   weight: { type: Number, required: true },
 
-  // This is undefined until we get more information
-  labResults: { type: Map, of: String },
 });
 
 const Patient = mongoose.model("Patient", patientSchema);
