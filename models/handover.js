@@ -3,12 +3,7 @@ const Schema = mongoose.Schema;
 
 const handoverSchema = new Schema({
     createdAt: { type: Date, required: true, default: Date.now },
-    patient: {
-        fullName: { type: String, required: true },
-        age: { type: Number, required: true },
-        gender: { type: String, enum: ['Male', 'Female', 'Other'], required: true },
-        dateOfBirth: { type: Date, required: true }
-    },
+    patientID: { type: Schema.Types.ObjectId, ref: 'Patient', required: true },
     handoverSummary: {
         currentVisit: { type: String, required: true },
         allergies: { type: [String], default: [] },
