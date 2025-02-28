@@ -1,10 +1,10 @@
 const Handover = require('../models/handover');
 const { generateHandoverSummary } = require('./llm-service');
 
-const createHandover = async (handoverBody) => {
+const createHandover = async (chartingData) => {
     try {
-        const patientID = handoverBody.patientID;
-        const generatedSummary = await generateHandoverSummary(handoverBody);
+        const patientID = chartingData.patientID;
+        const generatedSummary = await generateHandoverSummary(chartingData);
         const handoverSummary = generatedSummary.handoverSummary;
         if (!handoverSummary) {
             throw new Error("Generated handover summary is missing.");
